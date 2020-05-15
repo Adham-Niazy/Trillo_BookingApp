@@ -1,0 +1,129 @@
+<!-- FIRST CHILD COMPONENT THE GALLERY  -->
+<div class="gallery">
+  <figure class="gallery__item">
+      <img [(src)]="clickedHotel.imgs[0]" alt="Photo of hotel one" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+      <img [(src)]="clickedHotel.imgs[1]" alt="Photo of hotel Two" class="gallery__photo">
+  </figure>
+  <figure class="gallery__item">
+      <img [(src)]="clickedHotel.imgs[2]" alt="Photo of hotel Three" class="gallery__photo">
+  </figure>
+</div>
+<!-- THE OVERVIEW SECTION  -->
+<div class="overview">
+  <h1 class="overview__heading">
+       Hotel {{clickedHotel.name}}
+  </h1>
+
+
+  <div class="overview__stars">
+      <svg class="overview__icon--star">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="overview__icon--star">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="overview__icon--star">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="overview__icon--star">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+      </svg>
+      <svg class="overview__icon--star">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+      </svg>
+  </div>
+
+  <div class="overview__location">
+      <svg class="overview__icon--location">
+          <use xlink:href="../assets/imgs/sprite.svg#icon-location-pin"></use>
+      </svg>
+      <button class="btn-outline">
+          {{clickedHotel.location}}
+      </button>
+  </div>
+  <div class="overview__rating">
+      <div class="overview__rating-average">{{clickedHotel.rating}}</div>
+      <div class="overview__rating-count">{{clickedHotel.votes}} votes</div>
+  </div>
+</div>
+
+<!-- THE DETAILS CONTAINER  -->
+<div class="details">
+  <!-- DESCRIPTION COMPONENT  -->
+  <div class="description">
+      <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, dolorem! Earum id nesciunt quo sunt nobis ad accusamus repellendus repellat. Similique deleniti accusantium eligendi quas.
+      </p>
+      <p class="paragraph">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus aperiam cupiditate odio ut et corrupti?
+      </p>
+      <!-- lIST COMPONENT CAN BE REUSED IN OTHER SECTIONS  -->
+      <ul class="list">
+          <li class="list__item">Close to the beach</li>
+          <li class="list__item">Breakfast included</li>
+          <li class="list__item">Free airport shuttle</li>
+          <li class="list__item">Free wifi in all rooms</li>
+          <li class="list__item">Air conditioning and heating</li>
+          <li class="list__item">Pets allowed</li>
+          <li class="list__item">We speak all languages</li>
+          <li class="list__item">Perfect for families</li>
+      </ul>
+
+      <div class="recommend">
+          <p class="recommend__count">
+              Haidy and 3 other friends recommend this hotel.
+          </p>
+          <div class="recommend__friends">
+              <img src="../assets/imgs/user-3.jpg" alt="Friend 1" class="recommend__photo">
+              <img src="../assets/imgs/user-4.jpg" alt="Friend 2" class="recommend__photo">
+              <img src="../assets/imgs/user-5.jpg" alt="Friend 3" class="recommend__photo">
+              <img src="../assets/imgs/user-6.jpg" alt="Friend 4" class="recommend__photo">
+
+          </div>
+      </div>
+  </div>
+
+  <!-- USER REVIEW COMPONENT  -->
+  <div class="user-reviews">
+      <figure class="review">
+          <blockquote class="review__text">
+              Lorem ipsum dolor sit amet , consectetur adipisicing elit. Nam reprehenderit magni, aliquam aut non aspernatur neque officia?
+          </blockquote>
+          <figcaption class="review__user">
+              <img class="review__photo" src="../assets/imgs/user-1.jpg" alt="Photo review one">
+              <div class="review__user-box">
+                  <p class="review__user-name">Hima Mowafy</p>
+                  <p class="review__user-date">Mar 10th, 2020</p>
+              </div>
+              <div class="review__rating">7.8</div>
+          </figcaption>
+      </figure>
+      <figure class="review">
+          <blockquote class="review__text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, unde sit. Vel, quibusdam!
+          </blockquote>
+          <figcaption class="review__user">
+              <img class="review__photo" src="../assets/imgs/user-2.jpg" alt="Photo review one">
+              <div class="review__user-box">
+                  <p class="review__user-name">Haidy Hossam</p>
+                  <p class="review__user-date">Mar 11th, 2020</p>
+              </div>
+              <div class="review__rating">9.4</div>
+          </figcaption>
+      </figure>
+
+      <button class="btn-outline">Show all <span>&rarr;</span></button>
+  </div>
+</div>
+<!-- CALL TO ACTION SECTION  -->
+<div class="CTA">
+  <h2 class="CTA__heading">
+      Good news! We have {{clickedHotel.roomsLeft}} free rooms for your selected dates!
+  </h2>
+  <button class="btn" (click) = "checkLogining()">
+      <span class="btn__visible">Book now</span>
+      <span class="btn__hidden">Only {{clickedHotel.roomsLeft}} rooms left</span>
+  </button>
+</div>

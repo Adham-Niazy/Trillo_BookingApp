@@ -1,0 +1,45 @@
+<!-- <div class="heading__primary">
+  Trillo &mdash; Your all-in-one booking app
+</div> -->
+
+<div class="hotels-container">
+    <div class="hotels-container__item" *ngFor="let hotel of Hotels">
+      <div class="hotels-container__item--photo">
+        <img [(src)]="hotel.imgs[0]">
+      </div>
+      <div class="hotels-container__item--info">
+        <div class="hotels-container__heading">
+          {{hotel.name}}
+        </div>
+        <div class="hotels-container__stars">
+          <svg class="hotels-container__stars--star">
+              <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+          </svg>
+          <svg class="hotels-container__stars--star">
+              <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+          </svg>
+          <svg class="hotels-container__stars--star">
+              <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+          </svg>
+          <svg class="hotels-container__stars--star">
+              <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+          </svg>
+          <svg class="hotels-container__stars--star">
+              <use xlink:href="../assets/imgs/sprite.svg#icon-star"></use>
+          </svg>
+        </div>
+        <div class="hotels-container__rating">{{hotel.rating}}</div>
+      </div>
+      <div class="hotels-container__item--description">
+        <p class="paragraph">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, fugiat nesciunt vel neque ipsum voluptas repellendus quaerat, reiciendis expedita modi debitis laborum! Natus in, veniam fuga eos modi cupiditate reiciendis expedita modi debitis laborum! Natus in, veniam fuga eos modi cupiditate Lorem, ipsum dolor.
+        </p>
+      </div>
+      <div class="button-section">
+        <button class="btn" [routerLink]="['Hotel', hotel.id , hotel.name ]">
+            <span class="btn__visible btn__visible--smaller">See More</span>
+            <span class="btn__hidden btn__hidden--smaller">Hurry up!</span>
+        </button>
+      </div>
+    </div>
+</div>

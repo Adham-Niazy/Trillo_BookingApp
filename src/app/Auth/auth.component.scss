@@ -1,0 +1,174 @@
+@import '../../mediaQuery_variables.scss';
+
+
+// STYLING CONTAINER
+
+
+.register {
+
+  &-section {
+    padding: 5rem;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    overflow: hidden;
+
+    @media only screen and ( max-width: $bp-small ) {
+      padding: 3rem;
+    }
+
+    @media only screen and ( max-width: $bp-smallest ) {
+      padding: 0rem;
+    }
+  }
+
+  &-card {
+    background-image: linear-gradient(105deg,rgba(#fff,.9)0%,rgba(#fff,.9)50%,transparent 50%), url(../../assets/imgs/hotel-2.jpg);
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 4rem 6rem rgba( #000, .2);
+
+    @media only screen and ( max-width: $bp-medium ) {
+      background-image: linear-gradient(105deg,rgba(#fff,.9)0%,rgba(#fff,.9)60%,transparent 60%), url(../../assets/imgs/hotel-2.jpg);
+    }
+
+    @media only screen and ( max-width: $bp-small ) {
+      background-image: linear-gradient(105deg,rgba(#fff,.9)0%,rgba(#fff,.9)100%), url(../../assets/imgs/hotel-2.jpg);
+    }
+  }
+
+  &-form {
+    width: 50%;
+    padding: 6rem;
+    @media only screen and ( max-width: $bp-medium ) {
+      width: 60%;
+    }
+    @media only screen and ( max-width: $bp-small ) {
+      width: 100%;
+    }
+  }
+}
+
+
+// STYLING THE FORM INPUTS
+
+.heading {
+  font-size: 3rem;
+  font-weight: 100;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  background-image: linear-gradient(to right, var(--color-primary-light),var(--color-primary-dark));
+  background-clip: text;
+  color: transparent;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &-group:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+
+  &-input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: .05);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s ease;
+    @media only screen and ( max-width: $bp-small ) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: .1);
+    }
+    &::-webkit-input-placeholder {
+        color:var(--grey-light-4);
+
+    }
+
+  }
+
+  &-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    display: block;
+    transition: all .3s ease;
+  }
+  &-input:placeholder-shown + &-label {
+      transform: translateY(-4rem);
+      opacity: 0;
+      visibility: hidden;
+  }
+
+  .btn-primary {
+    margin-top: -1rem;
+    padding: 1.5rem 3rem;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light),var(--color-primary-dark));
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-right: 3.5rem;
+    @media only screen and ( max-width: $bp-small ) {
+      margin-right: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: .7;
+      background-image: linear-gradient(to right, var(--color-primary-light),var(--color-primary-dark));
+      cursor: not-allowed;
+    }
+  }
+
+}
+.paragraph {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  margin-left: 2rem;
+  justify-self: flex-end;
+
+  @media only screen and ( max-width: $bp-large ) {
+    margin-left: 1rem;
+  }
+
+  @media only screen and ( max-width: $bp-small ) {
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bolder;
+  }
+}
+
+
+
+// SOME CSS FOR VALIDATION
+
+
+input.ng-valid.ng-dirty {
+  border-bottom: 3px solid #28b485;
+}
+
+input.ng-invalid.ng-touched {
+  border-bottom: 3px solid var(--color-primary-light);
+}
+

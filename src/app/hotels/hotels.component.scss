@@ -1,0 +1,106 @@
+@import "../../mediaQuery_variables.scss";
+
+
+
+
+.hotels-container {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__heading {
+    margin-top: .3rem;;
+    font-size: 1.8rem;
+    padding: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    width: 45%;
+    background-color: #fff;
+    transition: all .3s;
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto 4rem;
+
+    @media only screen and ( max-width:$bp-small ) {
+        width: 80%;
+    }
+    @media only screen and ( max-width:$bp-smallest ) {
+      width: 90%;
+  }
+
+    &--photo {
+      overflow: hidden;
+    }
+
+    &--photo img {
+      width: 100%;
+      display: block;
+      transition: transform .6s;
+    }
+
+
+    &--info {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--grey-light-2);
+      align-self: stretch;
+    }
+
+    &--description {
+      padding: 1rem;
+      font-size: 1.5rem;
+      .paragraph:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4rem 6rem rgba(0,0,0,0.1)
+  }
+  &__item:hover img {
+    transform: scale(1.1);
+  }
+
+  &__stars {
+    display: flex;
+    margin-right: auto;
+
+    &--star {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--color-primary);
+    }
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    font-size: 1.5rem;
+    flex: 0 0 17%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    color: #fff;
+  }
+}
+.button-section {
+  padding: 2rem;
+}
+// JUST A MODIFICATION ON THE BUTTON TO BE SMALLER
+.btn__visible--smaller {
+  padding: 1.5rem 3.5rem;
+}
+.btn__hidden--smaller {
+      padding: 1.5rem 0;
+}
+
+

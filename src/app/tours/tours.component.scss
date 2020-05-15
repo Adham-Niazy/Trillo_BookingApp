@@ -1,0 +1,173 @@
+@import '../../mediaQuery_variables.scss';
+
+.container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 6rem 4rem;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+
+}
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+  width: 30%;
+  margin: 1.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 40%;
+    height: 45rem;
+    margin-bottom: 7rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 70%;
+    margin-bottom: 7rem;
+  }
+  &-side {
+      overflow: hidden;
+      height: 50rem;
+      transition: all .8s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backface-visibility: hidden;
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 4rem rgba($color: #000000, $alpha: .15);
+      &-back {
+          transform: rotateY(180deg);
+          background-image: linear-gradient(to right bottom , var(--color-primary-light),var(--color-primary-dark));
+      }
+  }
+  &:hover &-side-front {
+      transform: rotateY(-180deg);
+  }
+  &:hover &-side-back {
+      transform: rotateY(0);
+  }
+  &-picture {
+      background-size: cover;
+      background-blend-mode: screen;
+      height: 23rem;
+      clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+      -webkit-clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-image: linear-gradient(to right bottom , var(--color-primary-light),var(--color-primary-dark)), url(../../assets/imgs/Tours/nat-5.jpg);
+      background-position: center;
+  }
+  &-heading {
+      font-size: 2.8rem;
+      font-weight: 300;
+      text-align: right;
+      text-transform: uppercase;
+      color: #fff;
+      position: absolute;
+      top: 12rem;
+      right: 2rem;
+      width: 75%;
+  }
+  &-heading-span {
+      padding: 1rem 1.5rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      background-image: linear-gradient(to right bottom, rgba(#ff3366,0.8),rgba(#BA265D,0.8));
+
+  }
+  &-details {
+      padding: 2rem 3rem;
+      ul {
+          list-style: none;
+          width: 80%;
+          margin: auto;
+          li {
+              font-size: 1.5rem;
+              text-align: center;
+              padding: 1rem;
+              &:not(:last-child) {
+                  border-bottom: 2px solid #eee;
+              }
+          }
+      }
+
+  }
+  &-cta {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      width: 90%;
+  }
+  &-price-box {
+      margin-bottom: 8rem;
+      color: #fff;
+  }
+  &-price-only {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+  }
+  &-price-value {
+      font-size: 6rem;
+      font-weight: 100;
+  }
+
+
+
+}
+
+.btns,
+.btns:link,
+.btns:visited {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+    cursor: pointer;
+}
+.btns:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+.btns:active,
+.btns:focus {
+    outline: none;
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+.btn-white {
+    background-color: #fff;
+    color: var(--grey-dark-3);
+}
+.btns::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s ease;
+}
+.btn-white::after {
+    background-color: #fff;
+}
+.btns:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}

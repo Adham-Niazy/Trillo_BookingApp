@@ -1,0 +1,22 @@
+<div class="heading__primary">
+  Choose your own car
+</div>
+
+<div class="container">
+  <div class="card" *ngFor="let car of cars">
+    <div class="imgBox">
+      <img [src]=car.image alt="car png">
+    </div>
+    <div class="contentBox">
+      <h2>{{car.name}}  Car</h2>
+      <div class="model">
+        <h3>Model &nbsp;:</h3>
+        <span *ngFor="let models of car.availableModel">{{models}}</span>
+      </div>
+      <div class="CTA">
+        <a (click) = "checkLogining()">Hurry Up</a>
+      </div>
+    </div>
+    <div class="card-caption">{{car.name}}</div>
+  </div>
+</div>

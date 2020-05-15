@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card" *ngFor="let tour of Tours">
+    <div class="card-side card-side-front">
+        <div class="card-picture">
+
+        </div>
+        <div class="card-heading">
+            <span class="card-heading-span">{{tour.name}}</span>
+        </div>
+        <div class="card-details">
+            <ul>
+                <li>{{tour.duration}} days tours</li>
+                <li>Up to {{tour.maxNumber}} people</li>
+                <li>{{tour.numberOfTourGuides}} tour guides</li>
+                <li>Sleep in {{tour.sleeping}}</li>
+                <li>Difficulty: {{tour.difficulty}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-side card-side-back">
+        <div class="card-cta">
+            <div class="card-price-box">
+                <div class="card-price-only">Only</div>
+                <div class="card-price-value">$297</div>
+            </div>
+            <a class="btns btn-white" (click) = "checkLogining()">Book now!</a>
+        </div>
+    </div>
+  </div>
+
+
+</div>

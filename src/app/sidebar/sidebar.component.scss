@@ -1,0 +1,107 @@
+@import "../../mediaQuery_variables.scss";
+
+.side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin-top: 0;
+    }
+
+    &__item {
+        position: relative;
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+            @media only screen and (max-width: $bp-medium) {
+                margin-bottom: 0;
+            }
+        }
+        @media only screen and (max-width: $bp-medium) {
+            width: 25%;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background-color: var(--color-primary);
+            transform: scaleY(0); // TRICK INSTEAD OF HIDING IT
+            transition: transform .2s,
+                        width .5s cubic-bezier(1,0,0,1) .2s,
+                        background-color .1s;
+        }
+        // ANIMATION WHEN HOVERING
+        &:hover::before ,
+        &--active::before{
+            transform: scaleY(1);
+            width: 100%;
+        }
+        // AFTER CLICKING THE SELECTED ELEMENT BECOME LIGHTER
+        &:active::before {
+            background-color: var(--color-primary-light);
+        }
+
+    }
+    &__link:link,
+    &__link:visited {
+        color: var(--grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        position: relative; // HAS NO MEANING JUST A TRICK TO MAKE Z-INDEX WORK
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+// COPYRIGHTS 
+
+.legal {
+    font-size: 1.1rem;
+    color: var(--grey-light-4);
+    padding: 2.5rem;
+    text-align: center;
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
+    .mySign {
+        color: #f7f7f7;
+        background-color: #333;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: all .3s ease;
+    }
+    .mySign:hover {
+        color: var(--color-primary);
+        box-shadow: 0 1rem 2rem rgba(0,0,0,.4);
+        transform: rotate(5deg) scale(1.3);
+    }
+}

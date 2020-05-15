@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "trillo-app-88765": {
+      "hosting": {
+        "TrilloApp": [
+          "trillo-app-88765"
+        ]
+      }
+    }
+  }
+}

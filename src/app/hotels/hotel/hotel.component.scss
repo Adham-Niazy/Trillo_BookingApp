@@ -1,0 +1,328 @@
+@import "../../../mediaQuery_variables.scss";
+@import "../../../animation";
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GALLERY
+.gallery {
+  display: flex;
+  &__item {
+    width: 33.33%;
+  }
+  &__photo {
+      width: 100%;
+      height: 100%;
+      display: block; // THIS FOR PREVENTING ERRORS FROM BEING INLINE_BLOCK
+  }
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OVERVIEW
+.overview {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--grey-light-2);
+  &__heading {
+      font-size: 2.25rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 1.5rem 3rem;
+      @media only screen and (max-width: $bp-small) {
+          font-size: 1.8rem;
+          padding: 1rem 2rem;
+      }
+  }
+
+  &__stars {
+      margin-right: auto;
+      display: flex;
+  }
+
+  &__icon--star,
+  &__icon--location {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: var(--color-primary);
+  }
+
+  &__location {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+  }
+
+  &__icon--location {
+      margin-right: .5rem;
+  }
+
+  &__rating {
+      background-color: var(--color-primary);
+      color: #fff;
+      margin-left: 3rem;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2.25rem;
+      &-average {
+          font-size: 2.25rem;
+          font-weight: 300;
+          margin-bottom: -3px;
+      }
+
+      &-count {
+          font-size: .8rem;
+          text-transform: uppercase;
+      }
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BUTTON WITHOUT OUTLINE
+.btn-outline {
+  display: inline-block;
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  background-color: transparent;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  padding-bottom: 2px;
+  transition: all .2s;
+
+  & span {
+      margin-left: 3px;
+      transition: margin-left .2s;
+  }
+
+  &:hover {
+      color: var(--grey-Dark-1);
+
+      & span {
+          margin-left: 8px;
+      }
+  }
+
+  &:focus {
+      outline: none;
+      animation: Pulse 1s infinite;
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DETAILS SECTION
+
+.details {
+  display: flex;
+  background-color: var(--grey-light-3);
+  padding: 4.5rem;
+  border-bottom: 1px solid var(--grey-light-2);
+  font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+      padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+  }
+
+  .description {
+      background-color: #fff;
+      box-shadow: 0 2rem 5rem rgba(0,0,0,0.06);
+      flex: 0 0 60%;
+      margin-right: 4.5rem;
+      padding: 3rem;
+
+      @media only screen and (max-width: $bp-medium) {
+          padding: 2rem;
+          margin-right: 3rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+          margin-right: 0;
+          margin-bottom: 3rem;
+      }
+  }
+
+  .user-reviews {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DESCRIPTION
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// LIST
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid var(--grey-light-2);
+  border-bottom: 1px solid var(--grey-light-2);
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+      flex: 0 0 50%;
+      margin-bottom: .7rem;
+  }
+  // FOR USING SVG DIRECT IN CSS
+  &__item::before {
+      content: "";
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      margin-right: .7rem;
+      // BUT FOR NEW ONE WE WILL USE MASKS
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../../../assets/imgs/SVG/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../../../assets/imgs/SVG/chevron-thin-right.svg);
+      mask-size: cover;
+
+
+      // THOSE TWO PROPERTIES ARE FOR OLDER BROWSER
+      // background-image: url(../assets/imgs/SVG/chevron-thin-right.svg);
+      // background-size: cover;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// RECOMMEND
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--grey-light-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__count {
+      margin-right: 1rem;
+  }
+
+  &__friends {
+      display: flex;
+  }
+
+  &__photo {
+      box-sizing: content-box; // RETURN IT TI DEFAULT TO FIX THE INCREASE AMOUNT OF BORDER-BOX
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      &:not(:last-child) {
+          margin-right: -1.5rem;
+      }
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// REVIEWS
+
+
+.review {
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0,0,0,0.06);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-bottom: 3rem;
+  }
+
+
+  @media only screen and (max-width: $bp-small) {
+      width: 100%;
+  }
+
+
+  &::before {
+      content: "\201C";
+      position: absolute;
+      font-family: sans-serif;
+      line-height: 1;
+      font-size: 20rem;
+      color: var(--grey-light-2);
+      top: -2.75rem;
+      left: -1rem;
+      z-index: 10;
+  }
+
+  &__text {
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 20;
+  }
+
+  &__user {
+      display: flex;
+      align-items: center;
+
+      &-box {
+          margin-right: auto;
+      }
+
+      &-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-bottom: .4rem;
+      }
+
+      &-date {
+          font-size: 1rem;
+          font-weight: 100;
+          color: var(--grey-Dark-3);
+      }
+  }
+
+  &__photo {
+      height: 4.5rem;
+      width: 4.5rem;
+      border-radius: 50%;
+      margin-right: 1.5rem;
+  }
+
+  &__rating {
+      color: var(--color-primary);
+      font-size: 2.2rem;
+      font-weight: 300;
+  }
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CALL TO ACTION SECTION
+
+.CTA {
+  padding: 3.5rem 0;
+  text-align: center;
+  @media only screen and (max-width: $bp-medium) {
+      padding: 2.5rem 0;
+  }
+
+  &__heading {
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+  }
+
+}
+
+
